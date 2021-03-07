@@ -1,0 +1,122 @@
+.rocket {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+
+  filter: drop-shadow(2px 4px 8px var(--shadow));
+
+  transform: translate(-50%, -50%);
+  transition: top 1000ms ease-in-out;
+}
+
+input[type="text"], input[type="password"] {
+  --padding: 0.75rem;
+
+  padding: var(--padding);
+  border-radius: calc(
+    var(--font-size) + var(--padding)
+  );
+  border: 2px solid transparent;
+
+  color: var(--fg-input);
+  background-color: var(--bg-input);
+
+  font-size: var(--font-size);
+  font-family: "Fira sans", sans-serif;
+
+  transition: border-color 250ms ease-in-out;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  outline: none;
+
+  border-color: var(--hi-primary);
+}
+
+input.has-icon {
+  background-repeat: no-repeat;
+  background-size: calc(
+    var(--font-size) + var(--padding)
+  );
+  background-position: var(--padding) 50%;
+  padding-left: calc(
+    2 * var(--font-size) + var(--padding)
+  );
+}
+
+input.icon-username {
+  background-image: url("../images/user-icon.svg");
+}
+
+input.icon-password {
+  background-image: url("../images/lock-icon.svg");
+}
+
+label {
+  font-size: var(--font-size-small);
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  color: var(--hi-primary);
+}
+
+a.small {
+  font-size: var(--font-size-small);
+}
+
+a.button {
+  --padding: 0.75rem;
+
+  padding: var(--padding);
+  border-radius: calc(
+    var(--font-size) + var(--padding)
+  );
+
+  background: var(--hi-gradient);
+  color: var(--bg-color);
+
+  font-size: var(--font-size);
+  text-align: center;
+  text-transform: uppercase;
+
+  transition: box-shadow 100ms ease-in-out;
+}
+
+a.button:hover {
+  box-shadow: 0 2px 6px 0 var(--shadow);
+}
+
+a.button:active {
+  box-shadow: none;
+}
+
+.transition {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+
+  background-color: var(--bg-color);
+
+  opacity: 0;
+  clip-path: circle(100vmax at 50% 200vmax);
+
+  transition: clip-path 1500ms ease-in-out,
+  opacity 1500ms ease-in-out;
+}
+
+main.logged-in .rocket {
+  top: -50vh;
+}
+
+main.logged-in .transition {
+  opacity: 1;
+  clip-path: circle(
+      100vmax at 50% 50%
+  );
+}
